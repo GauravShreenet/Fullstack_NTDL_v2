@@ -7,6 +7,7 @@ router.get("/", async (req, res)=> {
     res.json({
         status: "success",
         message: "Task is here",
+        taskLists,
     });
 });
 
