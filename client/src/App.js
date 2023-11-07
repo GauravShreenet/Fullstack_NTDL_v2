@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import { Form } from './component/Form';
 import { Message, Spinner } from './component/Message';
+import { Table } from './component/Table';
 
 function App() {
   const [resp, setResp] = useState({});
@@ -19,9 +20,9 @@ function App() {
         {showSpinner && <Spinner />}
         {/* form here */}
         <Form setResp={setResp} setShowSpinner={setShowSpinner}/>
-
+        <hr />
         {/* table here */}
-
+        <Table />
         {/* delete button  */}
 
 

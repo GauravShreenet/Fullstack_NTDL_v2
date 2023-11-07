@@ -5,3 +5,10 @@ import TaskSchema from './TaskSchema.js';
 export const addTask = obj => {
   return TaskSchema(obj).save();
 }
+
+//get all the tasks
+
+export const getTasks = () => {
+  return TaskSchema.find();
+};
+

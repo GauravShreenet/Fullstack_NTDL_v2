@@ -2,3 +2,7 @@
     background: linear-gradient(rgb(217, 98, 217), rgb(99, 99, 216));
     min-height: 100vh;
 }
+
+table, tr, td {
+    background: transparent !important;
+}
