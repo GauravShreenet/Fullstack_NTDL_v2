@@ -38,7 +38,7 @@ function App() {
         <Form setResp={setResp} setShowSpinner={setShowSpinner}/>
         <hr />
         {/* table here */}
-        <Table taskList={taskList} />
+        <Table taskList={taskList} setResp={setResp} fetchtask={fetchtask}/>
         {/* delete button  */}
 
 
