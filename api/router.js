@@ -1,5 +1,5 @@
 import express from "express";
-import { addTask, getTasks, updateTasks } from "./src/models/TaskModel.js";
+import { addTask, deleteTasks, getTasks, updateTasks } from "./src/models/TaskModel.js";
 const router = express.Router();
 
 router.get("/", async (req, res)=> {
@@ -40,6 +40,25 @@ router.patch("/", async (req, res) => {
     ? res.json({
         status: "success",
         message: "The Task has been switched",
+    })
+    : res.json({
+        status: "Error",
+        message: "Error try later",
+    })
+});
+
+router.delete("/", async (req, res) => {
+    console.log(req.body);
+
+    const data = req.body;
+
+    //add data to the database
+    const result = await deleteTasks(data);
+
+    result.deletedCount 
+    ? res.json({
+        status: "success",
+        message: "The Task has been deleted",
     })
     : res.json({
         status: "Error",

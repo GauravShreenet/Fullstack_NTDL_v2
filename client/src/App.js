@@ -23,6 +23,13 @@ function App() {
     }
   }
 
+  const ttlHr = taskList.reduce((a, i) => a + +i.hr, 0);
+
+    const msg = {
+        status: 'success',
+        message: `Total hours ${ttlHr} hrs`,
+    }
+
   return (
 
     <div className="wrapper">
@@ -35,11 +42,12 @@ function App() {
         <Message resp={resp} />
         {showSpinner && <Spinner />}
         {/* form here */}
-        <Form setResp={setResp} setShowSpinner={setShowSpinner}/>
+        <Form setResp={setResp} setShowSpinner={setShowSpinner} fetchtask={fetchtask}/>
         <hr />
         {/* table here */}
         <Table taskList={taskList} setResp={setResp} fetchtask={fetchtask}/>
-        {/* delete button  */}
+        
+        {ttlHr > 0 && <Message resp={msg} />}
 
 
       </div>

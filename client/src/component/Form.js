@@ -5,7 +5,7 @@ const initialState = {
     task: "",
     hr: "",
 }
-export const Form = ({ setResp ,setShowSpinner}) => {
+export const Form = ({ setResp ,setShowSpinner, fetchtask}) => {
 
     const [form, setForm] = useState(initialState);
     const handleOnChange = e => {
@@ -21,10 +21,16 @@ export const Form = ({ setResp ,setShowSpinner}) => {
         console.log(form);
         setShowSpinner(true);
 
+        //check if you have enough hour to add
+        
+
         const data = await postTask(form);
         setResp(data);
         setShowSpinner(false);
-        data.status === "success" && setForm(initialState);
+        if (data.status === "success"){
+            setForm(initialState);
+            fetchtask();
+        }
     }
 
     return (
