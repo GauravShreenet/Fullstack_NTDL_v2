@@ -3,6 +3,7 @@ import { connectDb } from "./src/dbConfig.js";
 import taskRouter from "./router.js";
 import cors from 'cors';
 import morgan from 'morgan';
+import "dotenv/config";
 
 const app = express();
 const PORT = 8000;
