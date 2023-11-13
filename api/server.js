@@ -9,7 +9,7 @@ import path from 'path';
 
 
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 connectDb();
 
 const __dirname = path.resolve();
